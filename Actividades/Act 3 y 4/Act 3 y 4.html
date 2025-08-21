@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pagina 3 y 4</title>
+	
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+	
+	<style>
+		body
+		{
+			text-align: center;
+			background-color: "#0D0D0D";
+		}
+		canvas
+		{
+			border:1px solid green;
+			background-color: "#091136";
+		}
+	</style>
+	<script>
+		var y = 0;
+		var dy = 1;
+		var z = 0;
+		var dz = -2;
+		var e = 0;
+		var de = -2;
+		function animate()
+		{
+			requestAnimationFrame(animate);
+        	console.log('animando');
+		 	var canvas = document.getElementById("micanvas");
+          	var context = canvas.getContext("2d");
+			
+			context.clearRect (0, 0, innerWidth, innerHeight);
+			
+			context.fillStyle = "#FF0000";
+			context.fillRect(250+y,20,300,100);
+			
+			context.fillStyle = "#FF0000";
+			context.fillRect(150+y,120,500,100);
+			
+			context.fillStyle = "#FF0000";
+			context.fillRect(50+y,220,700,400);
+			
+			context.fillStyle = "#FF0000";
+			context.fillRect(50+y,620,100,100);
+			
+			context.fillStyle = "#FF0000";
+			context.fillRect(250+y,620,200,100);
+			
+			context.fillStyle = "#FF0000";
+			context.fillRect(550+y,620,100,100);
+			
+			context.fillStyle = "#FFFFFF";
+			context.fillRect(150+y,220,200,200);
+			
+			context.fillStyle = "#FFFFFF";
+			context.fillRect(450+y,220,200,200);
+			
+			context.fillStyle = "#000000";
+			context.fillRect(250+y,320,100,100);
+			
+			context.fillStyle = "#000000";
+			context.fillRect(550+y,320,100,100);
+			
+			context.fillStyle = "#FFFFFF";
+			context.fillRect(z,850,100,100);
+			
+			context.font = "100pt Silkscreen";
+			context.fillStyle = "white";
+			context.fillText("Pac - Man", 90, 830);
+			
+			if (y > 200 || y < 0)
+		 {
+                dy= -dy;
+         }
+			if (z > 900 || z < 0)
+		 {
+                dz= -dz;
+         }	
+			
+		y+= dy;
+		z+= dz;
+		}
+		animate();
+	</script>
+</head>
+	
+<body>
+	<canvas id="micanvas" width ="1000" height="1000"></canvas>
+</body>
+</html>
