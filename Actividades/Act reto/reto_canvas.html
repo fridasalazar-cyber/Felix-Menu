@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Reto_canvas</title>
+	
+	
+	<script>
+		var x = Math.random() * 650;
+		var y = Math.random()*650;
+		var dx = 2;
+		var dy = 2;
+		var imagen = new Image();
+		imagen.src = "dvd.png";
+		
+		function animate()
+		{
+            requestAnimationFrame(animate);
+            var canvas = document.getElementById("micanvas");
+            var context = canvas.getContext("2d");
+            context.clearRect(0, 0, innerWidth, innerHeight);
+            context.drawImage(imagen, x, y, 150, 150); 
+            if (x > 650 || x < 0)
+			{
+                dx= -dx;
+            }
+			if (y > 650 || y < 0)
+			{
+                dy= -dy;
+            }
+           x+=dx;
+           y+=dy;
+        }
+        animate();
+		
+	</script>
+	
+	<style>
+		body
+		{
+			text-align: center;
+			background-color: "#C19EFF";
+		}
+		canvas
+		{
+			border:10px solid #FFFFFF;
+			background-color: "#CB19D7";
+		}
+	</style>
+	
+</head>
+	
+<body>
+	<canvas id = "micanvas" width = "800" height="800"></canvas>
+</body>
+</html>
