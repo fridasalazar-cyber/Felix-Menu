@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Notable&family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Onda</title>
+<style>
+	body
+	{
+		text-align: center;
+		background-image: url("fondo.png");
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		
+	}
+	canvas
+	{
+		background-color: #000000;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
+		border-top-right-radius: 20px;
+		border-top-left-radius: 20px;
+		align-content: center;
+	}
+	h1
+	{
+		color: white;
+		font-size: 90px;
+		font-family: "Passion One", sans-serif;
+	}
+	p
+	{
+		color: White;
+		font-size: 30px;
+	}
+	aside
+	{
+		color: white;
+		font-size: 20px;
+	}
+</style>
+</head>
+<body>
+	<canvas id = "canva" width = "800" height = "800"></canvas>
+	<audio data-key="1" id="audio1" preload="auto" src="H.mp3"></audio>
+	<audio data-key="Enter" id="enter" muted src="H.mp3"></audio>
+	<script src= "audio.js"></script>
+	<script src="utils.js"></script>
+	<aside>Presiona la tecla 1 para play y ENTER para salir</aside>
+	<h1>How it´s done - HUNTRIX</h1>
+	
+	<script>
+			window.onload = function() {
+			var canva = document.getElementById("canva");
+			var context = canva.getContext("2d");
+
+			var c1 = new Image();
+			c1.src = "kpop.png";
+
+			var angle = 0,
+				centerScale = 0.5,
+				range = 0.1,
+				speed = 0.02,
+				posicionX = 100,
+				posicionY = 100;
+
+			c1.onload = function() {
+				function drawFrame() {
+					requestAnimationFrame(drawFrame);
+
+					context.clearRect(0, 0, canva.width, canva.height);
+
+					// Calcular el escalado pulsante
+					var escala = centerScale + Math.sin(angle) * range;
+					angle += speed;
+
+					var newWidth = c1.width * escala;
+					var newHeight = c1.height * escala;
+
+					var x = (canva.width - newWidth) / 2;
+					var y = (canva.height - newHeight) / 2;
+
+					context.drawImage(c1, x, y, newWidth, newHeight);
+				}
+
+				drawFrame();
+			};
+		function onKeyboardEvent (event)
+		{ 
+			switch (event.keyCode) 
+			{ case 49: console.log("1!"); 
+					context.clearRect (0,0, innerWidth, innerHeight); 
+					break; 
+				case 13: console.log("Enter!"); 
+					context.clearRect (0,0, innerWidth, innerHeight); 
+					break; 
+				default: console.log(event.keyCode); 
+			} 
+		} 
+		window.addEventListener('keydown', onKeyboardEvent, false); 
+		};
+	</script>
+</body>
+	
+</html>
