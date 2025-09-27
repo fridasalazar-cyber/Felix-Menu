@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Notable&family=Passion+One:wght@400;700;900&family=Tiny5&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Reto Onda</title>
+    <style>
+        body 
+		{
+			text-align: center;
+			background-color: #000000;
+			background-image: url("fondo.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			font-family: "Tiny5", sans-serif;
+		}
+        canvas 
+		{ 
+			text-align:center; align-items: center; 
+			border:10px solid blue;
+
+		}
+		h1
+		{
+			color: Yellow;
+			font-size: 100px;
+		}
+		h3
+		{
+			color: white;
+			font-size: 70px;
+		}
+    </style>
+  </head>  
+  <body>
+    <canvas id="canvas" width="800" height="500"></canvas>
+    
+    <script src="utils.js"></script>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          angleX = 0,
+          angleY = 0,
+          range = 50,
+          centerX = 600,
+          centerY = 150,
+          xspeed = 1,
+          xspeedneg=-1, 
+          yspeed = 0.02,
+          xpos= 0,
+          ypos= 0; 
+
+            eye = new Image();
+            eye.src="fantasma.png";
+		
+      context.lineWidth = 2;
+
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, innerWidth, innerHeight);
+
+        eye.x = centerX + Math.sin(angleX) * range;
+        eye.y = centerY + Math.sin(angleY) * range;
+        angleX += xspeed;
+        angleY += yspeed;
+        
+        console.log(xpos);
+        xpos += xspeed;
+        if(xpos>600 || xpos<0){
+       xspeed = -xspeed; 
+      } 
+        ypos = centerY + Math.sin(angleY) * range;
+        context.drawImage(eye, xpos, ypos, 200, 200);
+        context.restore();
+
+      }());
+    };
+    </script>
+	  <h1>Pac - Man</h1>
+	  <h3>Blinky</h3>
+  </body>
+</html>
