@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>colordraw</title>
+	<style>
+		body
+		{
+			text-align: center;
+			background-image: url("of2.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			background-blend-mode: soft-light;
+		}
+		canvas
+		{
+			border-radius: 30px;
+			background-image: url("of.png");
+			background-blend-mode: screen;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id = "canvas" width = "1000" height = "1000"></canvas>
+	<script>
+		window. onload = function ()
+		{
+			var canvas = document.getElementById("canvas"),
+				context = canvas.getContext("2d");		
+			 gradient = context.createLinearGradient(500, 300, 400, 500);
+
+      //white to blue to red
+			gradient.addColorStop(0, "#F600FF");
+			gradient.addColorStop(0.5, "#6A00FF");
+     	 	gradient.addColorStop(1, "#0009FF");
+			
+	  //luna
+			context.save();
+			context.lineWidth = 3;
+			context.strokeStyle = "#FFEB52";
+			context.fillStyle = "#FFFEC9";
+			context.beginPath();
+			context.moveTo(800, 100);
+			context.quadraticCurveTo(920, 200, 800,300); // posición desplazada hacia la izquierda
+			context.quadraticCurveTo(1000, 200, 800,100); // posición desplazada hacia la izquierda
+    		context.closePath();
+			context.fill();
+			context.stroke();
+			context.restore();
+			
+	  //ojo
+			context.save();
+			context.lineWidth = 6;
+			context.strokeStyle = "#000000";
+			context.fillStyle = "#FFFFFF";
+			context.beginPath();
+			context.moveTo(100,400);
+			context.quadraticCurveTo(500, 800, 900, 400);
+			context.quadraticCurveTo(500, -100, 100, 400);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.restore();
+			
+			context.save();
+			context.lineWidth = 6;
+			context.strokeStyle = "#160025";
+			context.fillStyle = gradient;
+			context.beginPath();
+			context.arc(500,370,150,0,2*Math.PI,true);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.restore();
+			
+			context.save();
+			context.lineWidth = 6;
+			context.strokeStyle = "#0B0B0B";
+			context.fillStyle = "#000000";
+			context.beginPath();
+			context.arc(500,370,100,0,2*Math.PI);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.restore();
+			
+			context.save();
+			context.lineWidth = 6;
+			context.strokeStyle = "#D8B7FF";
+			context.fillStyle = "#FFFFFF";
+			context.beginPath();
+			context.arc(570,320,20,0,2*Math.PI);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.restore();	
+			
+			
+			//casa
+			context.save();
+			context.lineWidth = 6;
+			context.strokeStyle = "#FF85C8";
+			context.fillStyle = "#FFA0D2";
+			context.beginPath();
+			context.fillRect(200,900,150,100);
+			context.strokeRect(200,900,150,100);
+			context.fill();
+        	context.stroke();
+			context.restore();
+						
+			context.save();
+			context.lineWidth = 6;
+			context.strokeStyle = "#9451FF";
+			context.fillStyle = "#AF67FF";
+			context.beginPath();
+			context.moveTo(170, 900);
+			context.quadraticCurveTo(280,700,380,900);
+			context.closePath();
+			context.fill();
+        	context.stroke();
+			context.restore();
+			
+			context.save();
+			context.lineWidth = 6;
+			context.strokeStyle = "#91CCD8";
+			context.fillStyle = "#CBFAFF";
+			context.beginPath();
+			context.fillRect(220,930,50,50);
+			context.strokeRect(220,930,50,50);
+			context.fill();
+        	context.stroke();
+			context.restore();
+			
+			context.save();
+			context.lineWidth = 6;
+			context.strokeStyle = "#B089FF";
+			context.fillStyle = "#DCC0FF";
+			context.beginPath();
+			context.fillRect(280,930,50,80);
+			context.strokeRect(280,930,50,80);
+			context.fill();
+        	context.stroke();
+			context.restore();
+			
+			context.save();
+			context.lineWidth = 6;
+			context.strokeStyle = "#7E13FF";
+			context.fillStyle = "#CC98FF";
+			context.beginPath();
+			context.arc(320,965,3,0,2*Math.PI);
+			context.closePath();
+			context.fill();
+			context.stroke();
+			context.restore();	
+						
+			
+			//hongito
+				context.save();
+				context.lineWidth = 6;
+				context.strokeStyle = "#A4004B";
+				context.fillStyle = "red";
+				context.beginPath();
+				context.moveTo(200, 700);
+				context.quadraticCurveTo(500, 200, 800, 700);
+				context.quadraticCurveTo(500, 900, 200, 700);
+				context.closePath();
+				context.fill();
+        		context.stroke();
+				context.restore();
+		
+			context.save();
+			context.lineWidth = 6;
+			context.strokeStyle = "#A58C59";
+			context.fillStyle = "#C8B78D";
+			context.beginPath();
+			context.moveTo(200, 700);
+			context.closePath();
+			context.quadraticCurveTo(500, 600, 800, 700);		
+			context.quadraticCurveTo(500, 900, 200, 700);
+			context.closePath();
+			context.fill();
+        	context.stroke();
+			context.restore();
+			
+			context.save();
+			context.lineWidth = 6;
+			context.strokeStyle = "#755F34";
+			context.fillStyle = "#84734A";
+			context.beginPath();
+			context.moveTo(400, 655);
+			context.quadraticCurveTo(500, 2000, 600, 655);
+			context.quadraticCurveTo(500, 635, 400, 655);
+			context.closePath();			
+			context.fill();
+        	context.stroke();
+			context.restore();
+			
+			context.save();
+			context.lineWidth = 3;
+			context.strokeStyle = "#FFD4D5";
+			context.fillStyle = "#FFFFFF";
+			context.beginPath();
+			context.moveTo(400, 550);
+			context.quadraticCurveTo(460, 490, 440, 550);
+			context.quadraticCurveTo(400, 580, 400, 550);
+			context.closePath;
+			context.fill();
+			context.stroke();
+			context.restore();
+			
+			context.save();
+			context.lineWidth = 3;
+			context.strokeStyle = "#FFD4D5";
+			context.fillStyle = "#FFFFFF";
+			context.beginPath();
+			context.moveTo(440, 490);
+			context.quadraticCurveTo(440, 460, 400, 490);
+			context.quadraticCurveTo(380, 540, 440, 490);
+			context.closePath;
+			context.fill();
+			context.stroke();
+			context.restore();
+			
+			context.save();
+			context.lineWidth = 3;
+			context.strokeStyle = "#FFD4D5";
+			context.fillStyle = "#FFFFFF";
+			context.beginPath();
+			context.moveTo(300, 600);
+			context.quadraticCurveTo(350, 530, 340, 600);
+			context.quadraticCurveTo(290, 650, 300, 600);
+			context.closePath;
+			context.fill();
+			context.stroke();
+			context.restore();
+			
+			    // ---------- DIBUJAR ESTRELLA ----------
+    function drawStar(cx, cy, spikes, outerRadius, innerRadius, color) {
+      let rot = Math.PI / 2 * 3;
+      let x = cx;
+      let y = cy;
+      let step = Math.PI / spikes;
+
+      context.beginPath();
+      context.moveTo(cx, cy - outerRadius);
+      for (let i = 0; i < spikes; i++) {
+        x = cx + Math.cos(rot) * outerRadius;
+        y = cy + Math.sin(rot) * outerRadius;
+        context.lineTo(x, y);
+        rot += step;
+
+        x = cx + Math.cos(rot) * innerRadius;
+        y = cy + Math.sin(rot) * innerRadius;
+        context.lineTo(x, y);
+        rot += step;
+      }
+      context.lineTo(cx, cy - outerRadius);
+      context.closePath();
+	  context.lineWidth = 3;
+	  context.strokeStyle = "#FFA300";
+	  context.stroke();
+      context.fillStyle = color;
+      context.fill();
+    }
+
+			// Dibujar estrella centrada
+    drawStar(900, 600, 5, 30, 12, '#FFF100'); // centro, picos, tamaño exterior, tamaño interior, color
+    drawStar(700, 800, 5, 30, 12, '#FFF100'); 
+    drawStar(300, 100, 5, 30, 12, '#FFF100'); 
+    drawStar(900, 300, 5, 30, 12, '#FFF100'); 
+    drawStar(100, 600, 5, 30, 12, '#FFF100');
+			
+			
+		};
+	</script>
+</body>
+</html>
