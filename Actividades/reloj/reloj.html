@@ -53,19 +53,19 @@ window.onload = function () {
  		
 		
 		 context.save();
-        radHora += 0.005 * Math.PI / 180;
+        radHora += 0.05 * Math.PI / 180;
         context.rotate(radHora);
         context.drawImage(hora, -hora.width/2, -hora.height/2);
         context.restore();
 		
 		context.save();
-        radMin += 0.01 * Math.PI / 180;
+        radMin += 0.1 * Math.PI / 180;
         context.rotate(radMin);
         context.drawImage(min, -min.width/2, -min.height/2);
         context.restore();
 
         context.save();
-        radSeg += 0.5 * Math.PI / 180;
+        radSeg += 1 * Math.PI / 180;
         context.rotate(radSeg);
         context.drawImage(seg, -seg.width/2, -seg.height/2);
         context.restore();
