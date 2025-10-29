@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Reloj</title>
+<style>
+    body {
+        text-align: center;
+		background-image: url("fondo.jpg");
+		background-blend-mode: overlay;
+		background-size: cover;
+		background-repeat: no-repeat;
+    }
+    canvas {
+        background-image: url("horali.png");
+		background-color: #D8D8D8;
+		background-repeat: no-repeat;
+		background-size: cover;
+        border-radius: 400px;
+		border: 10px solid #38081B;
+    }
+</style>
+</head>
+
+<body>
+<canvas id="canvas" width="800" height="800"></canvas>
+
+<script>
+window.onload = function () {
+    var canvas = document.getElementById('canvas'),
+		context = canvas.getContext('2d'),
+
+     seg = new Image(),
+     min = new Image(),
+     hora = new Image(),
+	horas = new Image();
+	
+	horas.src = "horali.png";
+    seg.src = "m-01.png";
+    min.src = "m-02.png";
+    hora.src = "m-03.png";
+
+    let radSeg = 0;
+    let radMin = 0;
+    let radHora = 0;
+
+    function drawFrame() {
+        requestAnimationFrame(drawFrame);
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+        context.translate(400, 400); 
+ 		
+		
+		 context.save();
+        radHora += 0.0005 * Math.PI / 180;
+        context.rotate(radHora);
+        context.drawImage(hora, -hora.width/2, -hora.height/2);
+        context.restore();
+		
+		context.save();
+        radMin += 0.001 * Math.PI / 180;
+        context.rotate(radMin);
+        context.drawImage(min, -min.width/2, -min.height/2);
+        context.restore();
+
+        context.save();
+        radSeg += 0.05 * Math.PI / 180;
+        context.rotate(radSeg);
+        context.drawImage(seg, -seg.width/2, -seg.height/2);
+        context.restore();
+		
+        context.restore();
+    }
+
+    drawFrame();
+};
+</script>
+
+</body>
+</html>
